@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHANTOM TETRIS — Steal Your Heart</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="bg-layer">
+    <div class="bg-stripes"></div>
+    <div class="bg-vignette"></div>
+</div>
+
+<div class="persona-eye left">☽</div>
+<div class="persona-eye right">👁</div>
+<div class="levelup-msg" id="levelup-msg">LEVEL UP!</div>
+<div class="watermark">PHANTOM THIEVES © 2024</div>
+
+<div class="title-area">
+    <div class="title-main">
+        <span class="phantom">PHANTOM </span><span class="tetris">TETRIS</span>
+    </div>
+    <div class="title-accent"></div>
+    <div class="title-sub">Will you steal their hearts? — Phantom Thieves</div>
+</div>
+
+<div class="game-wrapper">
+    <!-- LEFT PANEL -->
+    <div class="side-panel">
+        <div class="panel-box">
+            <div class="panel-label">Score</div>
+            <div class="panel-value" id="score-display">0</div>
+        </div>
+        <div class="panel-box">
+            <div class="panel-label">Level</div>
+            <div class="panel-value" id="level-display">1</div>
+        </div>
+        <div class="panel-box">
+            <div class="panel-label">Lines</div>
+            <div class="panel-value" id="lines-display">0</div>
+        </div>
+        <div class="panel-box">
+            <div class="panel-label">Hold</div>
+            <canvas id="hold-canvas" width="100" height="80"></canvas>
+        </div>
+    </div>
+
+    <!-- GAME CANVAS -->
+    <div class="canvas-container">
+        <div class="canvas-corner tl"></div>
+        <div class="canvas-corner tr"></div>
+        <div class="canvas-corner bl"></div>
+        <div class="canvas-corner br"></div>
+        <canvas id="game-canvas" width="300" height="600"></canvas>
+        <div id="flash-overlay"></div>
+
+        <!-- START OVERLAY -->
+        <div class="overlay" id="start-overlay">
+            <div class="mask-icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                    <ellipse cx="24" cy="20" rx="18" ry="14" fill="#e8002d"/>
+                    <ellipse cx="16" cy="17" rx="4" ry="5" fill="white"/>
+                    <ellipse cx="32" cy="17" rx="4" ry="5" fill="white"/>
+                    <ellipse cx="16" cy="17" rx="2" ry="3" fill="#0a0a0a"/>
+                    <ellipse cx="32" cy="17" rx="2" ry="3" fill="#0a0a0a"/>
+                    <path d="M18 28 Q24 33 30 28" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="overlay-title">PHANTOM<br>TETRIS</div>
+            <div class="overlay-sub">Steal the hearts of<br>your enemies</div>
+            <button class="p5-btn" id="start-btn">START HEIST</button>
+        </div>
+
+        <!-- PAUSE OVERLAY -->
+        <div class="overlay hidden" id="pause-overlay">
+            <div class="overlay-title">PAUSED</div>
+            <div class="overlay-sub">The palace awaits...</div>
+            <button class="p5-btn" id="resume-btn">RESUME</button>
+        </div>
+
+        <!-- GAME OVER OVERLAY -->
+        <div class="overlay hidden" id="gameover-overlay">
+            <div class="overlay-title">GAME<br>OVER</div>
+            <div class="overlay-sub">The shadows won this time...</div>
+            <div class="overlay-score" id="final-score">0</div>
+            <button class="p5-btn" id="restart-btn">TRY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="side-panel">
+        <div class="panel-box">
+            <div class="panel-label">Next</div>
+            <canvas id="next-canvas" width="100" height="80"></canvas>
+        </div>
+        <div class="panel-box" style="margin-top:4px">
+            <div class="panel-label" style="margin-bottom:8px">Controls</div>
+            <div style="font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:0.05em;line-height:2;color:rgba(245,240,232,0.7)">
+                ←→ MOVE<br>
+                ↑ ROTATE<br>
+                ↓ SOFT DROP<br>
+                SPACE HARD DROP<br>
+                C HOLD<br>
+                P PAUSE
+            </div>
+        </div>
+        <div class="panel-box">
+            <div class="panel-label">High Score</div>
+            <div class="panel-value small" id="hi-score">0</div>
+        </div>
+    </div>
+</div>
+
+<div class="controls">← → ↑ ↓ SPACE · C HOLD · P PAUSE</div>
+
+<script type="module" src="./js/main.js"></script>
+
+</body>
+</html>
